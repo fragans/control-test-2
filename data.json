@@ -1,0 +1,58 @@
+{
+    "products": [{
+            "id": 1,
+            "name": "Kopi Hitam",
+            "price": 4000,
+            "desc": "kopi nikmat",
+            "category": "minum",
+            "image": "http://jelajahnusa.com/wp-content/uploads/2019/10/Coffee.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Es Teh",
+            "price": 3500,
+            "desc": "teh nikmat",
+            "category": "minum",
+            "image": "https://www.covesia.com/assets/foto/berita/thumb_20180121035706.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Indomie Kuah",
+            "price": 8000,
+            "desc": "micin brooo",
+            "category": "makanan",
+            "image": "https://id-test-11.slatic.net/p/208b1188e94f521bbb356525e036f33e.jpg_720x720q80.jpg_.webp"
+        },
+        {
+            "id": 4,
+            "name": "Kerupuk Kulit",
+            "price": 2000,
+            "desc": "kriuk2",
+            "category": "makanan",
+            "image": "https://miro.medium.com/max/640/1*94zq4Bk2IIRNMk3ODSrpQQ.jpeg"
+        },
+        {
+            "id": 5,
+            "name": "panadol",
+            "price": 10000,
+            "desc": "pusying",
+            "category": "obat",
+            "image": "https://cdn.images.express.co.uk/img/dynamic/11/590x/Advil-and-Panadol-1061027.jpg?r=1545209587323"
+        },
+        {
+            "id": 6,
+            "name": "oskadon",
+            "price": 7000,
+            "desc": "pusying oyee",
+            "category": "obat",
+            "image": "https://pbs.twimg.com/media/Dy9hQPGUcAEHkOp.jpg"
+        }
+    ],
+    "user": [{
+            "username": "admin",
+            "password": "admin"
+
+        }
+
+    ]
+}

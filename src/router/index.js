@@ -1,27 +1,66 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import auth from './modules/auth'
+// import store from '../store'
 import Home from '../views/Home.vue'
-
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+// console.log(window.login)
+
+const routes = [{
+        path: '/',
+        name: 'Home',
+        meta: {
+            title: 'Login Admin'
+        },
+        component: Home
+    },
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        meta: {
+            title: 'Dashboard Kasir',
+            requiresAuth: true
+        },
+        // beforeEnter: () => {
+        //     // console.log(to)
+        //     // console.log(from)
+        //     // console.log(next)
+        //     console.log(store.getters.user)
+        // },
+        component: () =>
+            import ('../views/Dashboard.vue'),
+
+
+    }
 ]
 
 const router = new VueRouter({
-  routes
+    routes
 })
+
+// function loggedIn() {
+
+
+//     return false
+// }
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        // console.log(auth)
+        if (!localStorage.getItem('login')) {
+            next({
+                path: '/',
+                query: { redirect: to.fullPath }
+            })
+        } else {
+            next()
+        }
+    } else {
+        next() // make sure to always call next()!
+    }
+})
+
 
 export default router
