@@ -1,4 +1,4 @@
-# app
+# kasir kafe
 
 ## Project setup
 ```
