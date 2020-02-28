@@ -48,6 +48,8 @@ const mutations = {
                     state.is_login = true;
                     localStorage.setItem('login', payload.username)
                     router.push('/dashboard')
+                } else {
+                    alert('akun tidak ditemukan')
                 }
 
             })

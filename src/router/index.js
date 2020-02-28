@@ -39,11 +39,7 @@ const router = new VueRouter({
     routes
 })
 
-// function loggedIn() {
 
-
-//     return false
-// }
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         // this route requires auth, check if logged in
