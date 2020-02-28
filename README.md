@@ -15,10 +15,7 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### run backend server
 ```
-npm run lint
+json-server --watch data.json
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
