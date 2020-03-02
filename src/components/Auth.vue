@@ -1,12 +1,12 @@
 <template>
     <div class="flex-row flex w-full relative h-16" >
         
-        <div v-if="!is_loading" class="relative w-full">
-            <div class="flex-row flex" v-if="user" >
+        <div class="relative w-full">
+            <div class="flex-row flex" v-if="user()" >
                 <div class="w-16 h-16 bg-cover bg-center"  :style="{ backgroundImage: 'url(' +ava_url+')' }"></div>
                 <div class="px-4 font-bold text-gray-450 flex justify-center items-center" >
                     <span class="flex mr-1 text-blue-royal-400 text-sm"> hello </span>
-                    <span class="flex">{{user}}!</span>
+                    <span class="flex">{{user()}}!</span>
                 </div>
             </div>
             <div class="px-4 font-bold text-gray-300 flex justify-center items-center absolute right-0 top-0 bottom-0">
@@ -15,15 +15,12 @@
                 </router-link>
             </div>
         </div>
-        <div v-else class="">
-                loading ...
-        </div>
         
     </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import {  mapGetters } from 'vuex'
     export default {
         data(){
             return{
@@ -31,17 +28,14 @@ import { mapState, mapGetters } from 'vuex'
             }
         },
         computed: {
-            ...mapState({
-                is_login: state=> state.user.is_login,
-                user: state=> state.user.user,
-                
-                
-            }),
             ...mapGetters({
                 is_loading: 'user/is_loading',
             })
         },
         methods:{
+            user(){
+                return localStorage.getItem('login');
+            },
             logout(){
                 localStorage.removeItem('login')
                 this.$router.go('/')

@@ -1,38 +1,75 @@
 <template>
     <transition name="modal">
         <div class="modal-mask">
-        <div class="modal-wrapper" @click.self="$emit('close')">
-            <div class="modal-container">
+            <div class="modal-wrapper">
+                <div class="modal-container">
 
-            <div class="modal-header">
-                <slot name="header">
-                    default header
-                </slot>
-            </div>
+                    <div class="modal-header">
+                        <h1 class="text-center uppercase font-bold text-lg">Payment</h1>
+                    </div>
 
-            <div class="modal-body">
-                <slot name="body">
+                    <div class="modal-body">
+                        
+                        <div class="m-1 rounded overflow-hidden select-none" v-for="(item,i) in cart" :key=i>
+                            <span class="">{{item.name}}</span>
+                            <div>
+                                <span class="ml-1">
+                                    @Rp {{item.price}} x {{item.qty}}
+                                </span>
+                                <span class="float-right">
+                                    Rp {{item.qty*item.price}}
+                                </span>
+                            </div>
+                            <hr class="my-1">
+                        </div>
+
+                        <div class="font-bold m-1">
+                            <span>Total</span>
+                            <span class="float-right">Rp {{summary()}}</span>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="modal-footer flex items-center justify-center">
+                    
+                        <button class="bg-green-400 rounded p-2 mr-2 font-bold text-white" @click="checkout" >Print Bill</button>
+
+                        <button class="bg-red-thunderbird-400 rounded p-2 font-bold text-white" @click.stop="$emit('close')" >Cancel</button>
+
+                    </div>
+                </div>
+
                 
-                </slot>
-            </div>
-
-            <div class="modal-footer flex items-center justify-center">
-                
-                <button class="bg-green-400 rounded" @click="$emit('action')" >
-
-                    <slot name="button" ></slot>    
-
-                </button>
-                
-            </div>
             </div>
         </div>
-        </div>
+        
     </transition>
 </template>
 
 <script>
     export default {
+        props:['cart']
+        ,
+        methods:{
+            checkout(){
+                this.$store.commit('cart/clear')
+                this.$emit('close')
+            },
+            summary(){
+                let items = this.cart;
+                var line = 0;
+                var total = 0;
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].qty >= 0 ){
+                        line = items[i].price * items[i].qty
+                    }
+                    total = line + total;
+                    line = 0;     
+                }
+                return total;
+            },
+        },
+        
     }
 </script>
 

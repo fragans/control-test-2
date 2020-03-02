@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'HelloWorld',
   props: {
@@ -60,9 +61,19 @@ export default {
       errors:[]
     }
   },
+  computed:{
+    ...mapGetters({
+        is_loading: 'user/is_loading',
+    })
+  },
   watch:{
     errors:function(){
       this.resetErrors();
+    },
+    is_loading(newVal){
+      if(!newVal){
+        this.$router.push('/dashboard')
+      }
     }
   },
   methods:{

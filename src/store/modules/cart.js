@@ -51,7 +51,6 @@ const mutations = {
             } else if (record >= 0 && state.cart[record].qty <= 1) {
                 confirm('remove ' + state.cart[record].name + ' from cart?')
                 state.cart.qty = state.cart.splice(record, record + 1)
-
             } else {
                 return
             }
@@ -59,6 +58,7 @@ const mutations = {
     },
     clear(state) {
         state.cart = []
+        location.reload
     }
 }
 

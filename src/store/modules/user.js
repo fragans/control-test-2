@@ -1,5 +1,5 @@
 import axios from 'axios'
-import router from '../../router'
+// import router from '../../router'
 
 const state = {
     is_loading: true,
@@ -42,13 +42,14 @@ const mutations = {
                     localStorage.setItem('login', payload.username)
                     state.user = data[0].usernamme
                     state.is_loading = false;
-                    router.push('/dashboard')
-                    alert('welcome back!')
                 } else {
                     alert('akun tidak ditemukan')
                 }
 
             })
+            .then(
+                // router.push('/dashboard')
+            )
 
 
     },

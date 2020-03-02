@@ -53,9 +53,6 @@ import { mapState } from 'vuex';
                 this.$store.commit('cart/remove',{ item })
             }
         },
-        created(){
-            
-        }
     }
 </script>
 
