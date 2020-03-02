@@ -4,6 +4,11 @@ const state = {
     items: null,
     is_loading: true
 }
+const getters = {
+    is_loading(state) {
+        return state.is_loading
+    },
+}
 
 const mutations = {
 
@@ -28,5 +33,6 @@ export default {
     namespaced: true,
     state,
     mutations,
-    actions
+    actions,
+    getters
 }

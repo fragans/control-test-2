@@ -3,7 +3,7 @@
         
         <div class="bg-white max-w-md mx-auto rounded p-4 flex-row flex">
             <div>
-                <span class="text-gray-450">Category:</span>
+                <span class="text-gray-450 select-none">Category:</span>
             </div>
             <div class="flex font-pt-sans text-xs flex-wrap pl-4">
                 <div class="bg-gray-100 leading-none mb-1 mr-1 px-3 py-2 rounded-full text-gray-600 transition-opacity hover:bg-gray-600 hover:text-white cursor-pointer">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="bg-gray-100 leading-none mb-1 mr-1 px-3 py-2 rounded-full text-gray-600 transition-opacity hover:bg-gray-600 hover:text-white cursor-pointer" v-for="(cat,i) in cat_list" :key=i>
                     
-                    <span @click="filter(cat)">
+                    <span @click="filter(cat)" class="select-none">
                         {{cat}}
                     </span>
                 </div>
@@ -19,21 +19,20 @@
         </div>
 
       <div class="">
-        <div v-if="is_loading" class="flex flex-wrap max-w-md mx-auto pt-4 justify-center">
-            <div class="m-1 rounded overflow-hidden" v-for="(item,i) in prod" :key=i>
+        <div v-if="!is_loading" class="flex flex-wrap max-w-md mx-auto pt-4 justify-center">
+            <div class="m-1 rounded overflow-hidden select-none" v-for="(item,i) in prod" :key=i>
                 <div class="bg-white">
-                
                     <div class="w-48 h-24 bg-cover bg-center"  :style="{ backgroundImage: 'url(' + item.image + ')' }"></div>
                     <div class="bg-white py-2 px-4 text-blue-royal-500">{{item.name}}</div>
                     <div class="bg-white  px-4 text-black text-sm">Rp. {{item.price}}</div>
                     <div class="bg-white  px-4 text-gray-300 text-sm">{{item.desc}}</div>
                     <div class="p-4 flex" >
-                    <button @click="addToCart(item)" class="w-full bg-blue-royal-200 rounded-lg text-blue-royal-400 text-sm"> Add to cart</button>
+                    <button @click="addToCart(item)" class="w-full bg-blue-royal-200 rounded-lg text-blue-royal-400 text-sm">Add to cart</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div v-else>
+        <div v-else class="text-center h-full p-8">
             fetching data ..
         </div>
         
@@ -57,7 +56,7 @@ import store from '../store'
                 items: state => state.products.items,
             }),
             ...mapGetters({
-                is_loading: 'user/is_loading'
+                is_loading: 'products/is_loading'
             }),
             
         },

@@ -14,9 +14,9 @@
 
                     <div class="flex-grow-0 mr-4">
                         <div class="flex flex-row bg-gray-200 text-white">
-                            <div class="inc_button hover:bg-white hover:text-black bg-blue-royal-400 px-1 ml-1" @click="increaseQty(item)">+</div>
-                            <div class=" text-gray-450 inc_button hover:bg-white hover:text-black px-1">{{item.qty}}</div>
                             <div class="inc_button hover:bg-white hover:text-black bg-red-thunderbird-400 px-1 mr-1" @click="decreaseQty(item)">-</div>
+                            <div class=" text-gray-450 inc_button hover:bg-white hover:text-black px-1">{{item.qty}}</div>
+                            <div class="inc_button hover:bg-white hover:text-black bg-blue-royal-400 px-1 ml-1" @click="increaseQty(item)">+</div>                            
                         </div>
                     </div>
                     <div class="flex-grow-0">

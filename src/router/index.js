@@ -22,12 +22,6 @@ const routes = [{
             title: 'Dashboard Kasir',
             requiresAuth: true
         },
-        // beforeEnter: () => {
-        //     // console.log(to)
-        //     // console.log(from)
-        //     // console.log(next)
-        //     console.log(store.getters.user)
-        // },
         component: () =>
             import ('../views/Dashboard.vue'),
 
@@ -42,9 +36,6 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        // this route requires auth, check if logged in
-        // if not, redirect to login page.
-        // console.log(auth)
         if (!localStorage.getItem('login')) {
             next({
                 path: '/',

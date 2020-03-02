@@ -49,11 +49,16 @@ const mutations = {
             if (record >= 0 && state.cart[record].qty > 1) {
                 state.cart[record].qty = state.cart[record].qty - 1
             } else if (record >= 0 && state.cart[record].qty <= 1) {
+                confirm('remove ' + state.cart[record].name + ' from cart?')
                 state.cart.qty = state.cart.splice(record, record + 1)
+
             } else {
                 return
             }
         }
+    },
+    clear(state) {
+        state.cart = []
     }
 }
 

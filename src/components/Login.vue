@@ -1,19 +1,37 @@
 <template>
 
 <div class="flex items-center justify-center min-h-screen">
-  <div class="w-full max-w-sm h-64 bg-white rounded-lg p-4">
-
-    <div class="justify-center flex font-bold">LOGIN KASIR</div>  
+  <div class="w-full max-w-sm bg-white rounded-lg p-4">
+    <div class="mb-4">
+      <h1 class="justify-center flex text-3xl">LOGIN KASIR</h1>  
+      <h2 class="text-center text-gray-300 tracking-wide">Cafe janji doang</h2>
+    </div>
+    
+    <hr>
 
     <div  class="justify-center flex flex-col">
-      <div class="flex justify-center m-4">
-        <span class="px-2 py-1">username</span><input type="text" v-model="username" class="border border-gray-100 rounded p-1"> 
+      <div class="flex justify-center m-2">
+        <div>
+          <span class="py-1 font-bold text-gray-300 tracking-wide">username</span>
+          <div>
+            <input type="text" v-model="username" class="border border-white rounded shadow p-1"> 
+          </div>
+          
+        </div>
+        
       </div>
-      <div class="flex justify-center m-4">
-        <span class="px-2 py-1">password</span><input type="password" v-model="password" class="border border-gray-100 rounded p-1"> 
+      <div class="flex justify-center m-2">
+        <div>
+          <span class="py-1 font-bold text-gray-300 tracking-wide">password</span>
+          <div>
+            <input type="password" v-model="password" class="border border-white rounded shadow p-1"> 
+          </div>
+          
+        </div>
+        
       </div>
-      <div class="flex justify-center">
-        <button @click="login" class="w-32 p-4 bg-green-400">LOGIN</button>
+      <div class="flex justify-center mt-4">
+        <button @click="login" class="w-32 p-4 bg-green-400 font-bold text-white rounded">LOGIN</button>
       </div>
     </div>
 
@@ -67,12 +85,18 @@ export default {
       },3000);
     }
     
+  },
+  mounted(){
+    this.$store.commit('user/logout')
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+hr{
+  border-color: #eee;
+}
 .blink_me {
     -webkit-animation-name: blinker;
     -webkit-animation-duration: 1s;
