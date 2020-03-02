@@ -50,7 +50,6 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  name: 'HelloWorld',
   props: {
     msg: String
   },

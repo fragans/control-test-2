@@ -37,6 +37,8 @@ import {  mapGetters } from 'vuex'
                 return localStorage.getItem('login');
             },
             logout(){
+                if(!confirm('do you want to logout?')) return
+
                 localStorage.removeItem('login')
                 this.$router.go('/')
             },

@@ -9,11 +9,15 @@
                 <div class="bg-gray-100 leading-none mb-1 mr-1 px-3 py-2 rounded-full text-gray-600 transition-opacity hover:bg-gray-600 hover:text-white cursor-pointer" @click="listAll">
                     <span >All</span>
                 </div>
-                <div class="bg-gray-100 leading-none mb-1 mr-1 px-3 py-2 rounded-full text-gray-600 transition-opacity hover:bg-gray-600 hover:text-white cursor-pointer" @click="filter(cat)" v-for="(cat,i) in cat_list" :key=i>
+                <div class="bg-gray-100 leading-none mb-1 mr-1 px-3 py-2 rounded-full text-gray-600 transition-opacity hover:bg-gray-600 hover:text-white cursor-pointer" 
+                    @click="filter(cat)" 
+                    v-for="(cat,i) in cat_list" :key=i
+                >
                     
                     <span  class="select-none">
                         {{cat}}
                     </span>
+                    
                 </div>
             </div>
         </div>

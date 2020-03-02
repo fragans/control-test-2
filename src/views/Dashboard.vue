@@ -19,7 +19,7 @@
 
       <section class="bottom-0 absolute w-full" v-if="cart.length > 0">
 
-        <modal v-if="showModal" @close="showModal = false" :cart="cart"></modal>      
+        <checkout v-if="showModal" @close="showModal = false" :cart="cart"></checkout>      
 
         <button id="show-modal" @click.prevent="showModal = true"  class="bg-blue-royal-700 w-full text-white p-4 tracking-wider">Checkout({{cart.length}})</button>
 
@@ -36,7 +36,7 @@
 import auth from '@/components/Auth.vue'
 import products from '@/components/Products.vue'
 import cart from '@/components/Cart.vue'
-import modal from '@/components/Modal.vue'
+import checkout from '@/components/Checkout.vue'
 import { mapState } from 'vuex';
 export default {
   data(){
@@ -48,7 +48,7 @@ export default {
     auth,
     products,
     cart,
-    modal
+    checkout
   },
   computed:{
     ...mapState({
